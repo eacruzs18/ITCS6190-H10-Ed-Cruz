@@ -1,20 +1,26 @@
 # Hands-on L10: Report
 
 **Name:**
-**Student ID:**
+**Student ID:** 801337361
 **Email:**
 
 ---
 
 ## Seed and commands
 
-Seed used for `datagen.py`:
+Seed used for `datagen.py`: 801337361
 
 The commands you ran, in order. If you deviated from the steps in the README, say where and
 why.
 
 ```bash
-
+python3 datagen.py 801337361
+docker compose up -d
+docker cp main.py spark-master:/opt/spark/work-dir/
+docker exec -it spark-master /opt/spark/bin/spark-submit --master spark://spark-master:7077 /opt/spark/work-dir/main.py task1 /opt/spark/work-dir/shared
+docker exec -it spark-master /opt/spark/bin/spark-submit --master spark://spark-master:7077 /opt/spark/work-dir/main.py task2 /opt/spark/work-dir/shared
+docker exec -it spark-master /opt/spark/bin/spark-submit --master spark://spark-master:7077 /opt/spark/work-dir/main.py task2 /opt/spark/work-dir/shared update
+docker compose down
 ```
 
 ---
